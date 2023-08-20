@@ -39,7 +39,6 @@ export function setCookie(cookieName, cookieValue, expireDays) {
  */
 export function getCookie(cookieName) {
     const value = document.cookie.split(';').find(cookie => cookie.includes(cookieName));
-    console.log(value);
     if (value) {
         return value.split('=')[1];
     }

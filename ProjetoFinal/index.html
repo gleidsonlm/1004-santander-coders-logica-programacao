@@ -1,66 +1,84 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" />
     <title>Jogo da Forca</title>
 </head>
-<body>
-    <h1>Jogo da Forca</h1>
-    <h2><button type="reset" id="reset" disabled>Começar um novo jogo</button></h2>
-    <h2>Melhor resultado: <span id="max-score"></span></h2>
-    <div class="forca-container">
-        <svg height="250" width="200" class="forca">
-            <!---forca-->
-            <line x1="50" y1="20" x2="140" y2="20" />
-            <line x1="140" y1="20" x2="140" y2="50" />
-            <line x1="60" y1="20" x2="60" y2="230" />
-            <line x1="20" y1="230" x2="100" y2="230" />
-            <!---pernas-->
-            <line x1="140" y1="150" x2="120" y2="180" id="forca-leg-left" class="forca-parte hidden"/>
-            <line x1="140" y1="150" x2="160" y2="180" id="forca-leg-right" class="forca-parte hidden"/>
-            <!---braços-->
-            <line x1="140" y1="120" x2="120" y2="100" id="forca-arm-left" class="forca-parte hidden"/>
-            <line x1="140" y1="120" x2="160" y2="100" id="forca-arm-right" class="forca-parte hidden"/>
-            <!---corpo-->
-            <line x1="140" y1="90" x2="140" y2="150" id="forca-body" class="forca-parte hidden"/>
-            <!---cabeça-->
-            <circle cx="140" cy="70" r="20" id="forca-head" class="forca-parte hidden"/>
-        </svg>
-        <h2>Tentativas: <span id="attempts">6</span></h2> <!---colocar pra mostrar dinamicamente quantas tentativas faltam-->
+<body class="d-flex flex-column align-items-center" data-bs-theme="light">
+    <h1 class="display-1 bg-primary text-bg-primary vw-100 text-center p-3">Jogo da Forca</h1>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col order-2 card p-3">
+                <h2 class="card-title">Melhor Resultado: <span id="max-score"></span></h2>
+                <h2 class="card-title">Esta Tentativa: <span id="attempts">6</span></h2> <!---colocar pra mostrar dinamicamente quantas tentativas faltam-->
+                <button type="reset" id="reset" class="btn btn-lg btn-outline-primary" disabled>Jogar Novamente</button>
+            </div>
+            <div class="col order-1">
+                <div class="forca-container">
+                    <svg height="250" width="200" class="forca">
+                        <!---forca-->
+                        <line x1="50" y1="20" x2="140" y2="20" />
+                        <line x1="140" y1="20" x2="140" y2="50" />
+                        <line x1="60" y1="20" x2="60" y2="230" />
+                        <line x1="20" y1="230" x2="100" y2="230" />
+                        <!---pernas-->
+                        <line x1="140" y1="150" x2="120" y2="180" id="forca-leg-left" class="forca-parte hidden"/>
+                        <line x1="140" y1="150" x2="160" y2="180" id="forca-leg-right" class="forca-parte hidden"/>
+                        <!---braços-->
+                        <line x1="140" y1="120" x2="120" y2="100" id="forca-arm-left" class="forca-parte hidden"/>
+                        <line x1="140" y1="120" x2="160" y2="100" id="forca-arm-right" class="forca-parte hidden"/>
+                        <!---corpo-->
+                        <line x1="140" y1="90" x2="140" y2="150" id="forca-body" class="forca-parte hidden"/>
+                        <!---cabeça-->
+                        <circle cx="140" cy="70" r="20" id="forca-head" class="forca-parte hidden"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="word"></div>
-    <section>
-        <nav class="letters">
-            <button type="button" class="letter-button" id="a">a</button>
-            <button type="button" class="letter-button" id="b">b</button>
-            <button type="button" class="letter-button" id="c">c</button>
-            <button type="button" class="letter-button" id="d">d</button>
-            <button type="button" class="letter-button" id="e">e</button>
-            <button type="button" class="letter-button" id="f">f</button>
-            <button type="button" class="letter-button" id="g">g</button>
-            <button type="button" class="letter-button" id="h">h</button>
-            <button type="button" class="letter-button" id="i">i</button>
-            <button type="button" class="letter-button" id="j">j</button>
-            <button type="button" class="letter-button" id="k">k</button>
-            <button type="button" class="letter-button" id="l">l</button>
-            <button type="button" class="letter-button" id="m">m</button>
-            <button type="button" class="letter-button" id="n">n</button>
-            <button type="button" class="letter-button" id="o">o</button>
-            <button type="button" class="letter-button" id="p">p</button>
-            <button type="button" class="letter-button" id="q">q</button>
-            <button type="button" class="letter-button" id="r">r</button>
-            <button type="button" class="letter-button" id="s">s</button>
-            <button type="button" class="letter-button" id="t">t</button>
-            <button type="button" class="letter-button" id="u">u</button>
-            <button type="button" class="letter-button" id="v">v</button>
-            <button type="button" class="letter-button" id="w">w</button>
-            <button type="button" class="letter-button" id="x">x</button>
-            <button type="button" class="letter-button" id="y">y</button>
-            <button type="button" class="letter-button" id="z">z</button>
+    <div id="word" class="flex flex-wrap justify-content-center fs-3"></div>
+    <div id="won" class="alert alert-success alert-dismissible fade show w-75 hidden" role="alert">
+        <strong class="">Parabéns!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div id="lose" class="alert alert-warning alert-dismissible fade show w-75 hidden" role="alert">
+        <strong>Tente novamente!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <section class="container">
+        <nav class="letters font-monospace mt-5 mx-auto" role="group"aria-label="Choose a letter to guess">
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="a">a</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="b">b</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="c">c</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="d">d</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="e">e</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="f">f</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="g">g</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="h">h</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="i">i</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="j">j</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="k">k</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="l">l</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="m">m</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="n">n</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="o">o</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="p">p</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="q">q</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="r">r</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="s">s</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="t">t</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="u">u</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="v">v</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="w">w</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="x">x</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="y">y</button>
+            <button type="button" class="letter-button btn btn-lg btn-primary text-uppercase fs-1 mb-2" id="z">z</button>
         </nav>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script type="module" src="js/script.js"></script>
 </body>
 </html>
