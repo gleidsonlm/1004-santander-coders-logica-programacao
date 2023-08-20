@@ -47,5 +47,6 @@ export function getWord() {
     ];
     const randomIndex = Math.floor(Math.random() * lengthyWords.length);
     const randomWord = lengthyWords[randomIndex];  
+    console.log(randomWord);    
     return randomWord;    
 }

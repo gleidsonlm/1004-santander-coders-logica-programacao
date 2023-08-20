@@ -18,7 +18,6 @@ export function setAttempts(letters) {
             foundLetterArray.push(letterObject)
         }
     );
-    // letters.querySelectorAll('.letter').forEach(letter => console.log(letter.textContent));
     document.querySelectorAll('.letter-button').forEach(button => {
         button.addEventListener('click', () => {
             button.disabled = true;
@@ -103,7 +102,6 @@ function handleLetterNotFound(letter) {
     bodyParts[attemptsCount].classList.remove('hidden')
 
     notFoundLetterArray.push(letter)
-    console.log(notFoundLetterArray)
 }
 
 /**
@@ -119,5 +117,4 @@ function handleLetterFound(letter) {
             letterObject.found = true;
         }
     })
-    console.log(foundLetterArray)
 }

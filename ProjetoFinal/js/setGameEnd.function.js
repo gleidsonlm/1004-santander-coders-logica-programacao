@@ -13,13 +13,15 @@ export function setGameEnd(attempts) {
         let maxScore = setMaxScore(attempts)
         document.getElementById('max-score').innerText = maxScore;
 
-        alert('Parabéns, você ganhou!')
+        let winAlert = document.getElementById('won');
+        winAlert.classList.remove('hidden');
     }
 
     if (attempts < 1) {
         handleButtons()
 
-        alert('Não foi dessa vez, tente novamente!')
+        let winAlert = document.getElementById('lose');
+        winAlert.classList.remove('hidden');        
     }
 }
 
@@ -28,9 +30,16 @@ export function setGameEnd(attempts) {
  */
 function handleButtons() {
     document.querySelectorAll('.letter-button').forEach(
-        button => button.disabled = true
+        button => {
+            button.disabled = true
+            button.classList.add('btn-outline-primary');
+            button.classList.remove('btn-primary');
+        }
     );
-
-    document.getElementById('reset').disabled = false;
+    
+    let resetButton = document.getElementById('reset');
+    resetButton.disabled = false;
+    resetButton.classList.remove('btn-outline-primary');
+    resetButton.classList.add('btn-primary');
 
 }
