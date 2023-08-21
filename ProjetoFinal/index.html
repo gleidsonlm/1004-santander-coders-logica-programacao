@@ -12,24 +12,24 @@
         <input class="form-check-input" type="checkbox" role="switch" id="bd-theme">
         <label class="form-check-label" for="bd-theme" id="bd-theme-text">Night Mode</label>
     </div>
-    <h1 class="display-1 bg-primary text-bg-primary vw-100 text-center p-3 mt-5">Jogo da Forca</h1>
+    <h1 class="display-1 bg-primary text-bg-primary vw-100 text-center p-2 mt-5">Jogo da Forca</h1>
     </a>
     <div class="container text-center bg-secondary-subtle rounded">
         <div class="forca-container">
-                <svg height="14rem" width="10rem" class="forca">
+                <svg height="14rem" width="10rem" id ="forca"class="forca stroke-night">
                     <!---forca-->
                     <line x1="20" y1="20" x2="120" y2="20" />
                     <line x1="120" y1="20" x2="120" y2="30" />
                     <line x1="60" y1="20" x2="60" y2="200" />
                     <line x1="20" y1="200" x2="100" y2="200" />
                     <!---pernas-->
-                    <line x1="120" y1="130" x2="100" y2="150" id="forca-leg-left" class="forca-parte hidden"/>
-                    <line x1="120" y1="130" x2="140" y2="150" id="forca-leg-right" class="forca-parte hidden"/>
+                    <line x1="120" y1="120" x2="100" y2="150" id="forca-leg-left" class="forca-parte hidden"/>
+                    <line x1="120" y1="120" x2="140" y2="150" id="forca-leg-right" class="forca-parte hidden"/>
                     <!---braços-->
-                    <line x1="120" y1="110" x2="100" y2="90" id="forca-arm-left" class="forca-parte hidden"/>
-                    <line x1="120" y1="110" x2="140" y2="90" id="forca-arm-right" class="forca-parte hidden"/>
+                    <line x1="120" y1="100" x2="100" y2="80" id="forca-arm-left" class="forca-parte hidden"/>
+                    <line x1="120" y1="100" x2="140" y2="80" id="forca-arm-right" class="forca-parte hidden"/>
                     <!---corpo-->
-                    <line x1="120" y1="80" x2="120" y2="130" id="forca-body" class="forca-parte hidden"/>
+                    <line x1="120" y1="80" x2="120" y2="120" id="forca-body" class="forca-parte hidden"/>
                     <!---cabeça-->
                     <circle cx="120" cy="60" r="20" id="forca-head" class="forca-parte hidden"/>
                 </svg>
@@ -75,11 +75,11 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>    
     </div>
-    <div class="align-items-center justify-content-center mb-3">
-        <div class="p-3 card bg-secondary-subtle">
-            <h2 class="card-title">Melhor Resultado: <span id="max-score"></span></h2>
+    <div class="mb-3">
+        <div class="p-3 card bg-secondary-subtle align-items-center">
             <h2 class="card-title">Esta Tentativa: <span id="attempts">6</span></h2> <!---colocar pra mostrar dinamicamente quantas tentativas faltam-->
-            <hr />
+            <h2 class="card-title">Melhor Resultado: <span id="max-score"></span></h2>
+            <hr class="text-primary w-75"/>
             <button type="reset" id="reset" class="btn btn-lg btn-outline-primary" disabled>Jogar Novamente</button>
         </div>
     </div>

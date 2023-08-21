@@ -1,8 +1,16 @@
+/* CSS for when data-bs-theme is dark */
+
+.stroke-day {
+  stroke: white;
+}
+.stroke-night {
+  stroke: black;
+}
+
 .forca {
   margin: 1rem;
   fill: transparent;
-  stroke: #050505;
-  stroke-width: 0.5rem;
+  stroke-width: 0.4rem;
   stroke-linecap: round;
 }
 

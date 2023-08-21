@@ -23,4 +23,13 @@ colorModeButton.addEventListener('click', () => {
     let newTheme = theme === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-bs-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+    
+    let forcaStroke = document.getElementById('forca');
+    if (theme === 'dark') { 
+        forcaStroke.classList.add('stroke-night')
+        forcaStroke.classList.remove('stroke-day')
+    } else {
+        forcaStroke.classList.remove('stroke-night')
+        forcaStroke.classList.add('stroke-day')
+    }
 });
