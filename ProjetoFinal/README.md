@@ -24,7 +24,7 @@ Aqui estão as diretrizes para a implementação do jogo:
 
 [ X ] Use arrays para rastrear as letras adivinhadas e a posição delas na palavra.
 
-[  ] Dê estilo ao jogo usando CSS para melhorar a experiência visual. (OPCIONAL)
+[ X ] Dê estilo ao jogo usando CSS para melhorar a experiência visual. (OPCIONAL)
 
 Lembre-se de que a implementação do jogo de forca pode variar em complexidade, então sinta-se à vontade para adicionar recursos extras ou personalizações conforme desejar.
 
